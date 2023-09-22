@@ -10,7 +10,7 @@ const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [user, loading, error] = useAuthState('');
+    const [user, loading, error] = useAuthState(auth);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -34,11 +34,11 @@ const Login = () => {
                 placeholder="Password"
             />
 
-            <Button onClick={(e) => loginWithEmailAndPassword}>Login</Button>
+            <Button onClick={() => loginWithEmailAndPassword(email, password)}>Login</Button>
 
             <div>
-                Already have an account?
-                <Link to="/login">Login</Link>
+                Doesn't have an account?
+                <Link to="/register">Register</Link>
             </div>
         </div>
     );

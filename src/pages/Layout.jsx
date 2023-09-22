@@ -31,7 +31,7 @@ const Layout = () => {
                 </LinkContainer>
               </Nav>
             </Navbar.Collapse>
-            <Button onClick={() => logout}>Logout</Button>
+            <Button onClick={logout}>Logout</Button>
           </Container>
         </Navbar>
       </Row>
