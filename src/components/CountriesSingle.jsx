@@ -21,14 +21,19 @@ const CountriesSingle = () => {
   const country = location.state.country;
 
   useEffect(() => {
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&units=metric&appid=${process.env.REACT_APP_OPENWEATHER_KEY}`)
-      .catch((err) => {
-        setError(true);
-      })
-      .then((res) => {
-        setWeather(res.data);
-        setLoading(false);
-      })
+    if (!country.capital) {
+      setLoading(false)
+      setError(true)
+    } else {
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&units=metric&appid=${process.env.REACT_APP_OPENWEATHER_KEY}`)
+        .catch((err) => {
+          setError(true);
+        })
+        .then((res) => {
+          setWeather(res.data);
+          setLoading(false);
+        })
+    }
 
   }, [country.capital])
 
@@ -58,6 +63,9 @@ const CountriesSingle = () => {
         <Col>
           <h2 className='display-4'>{country.name.common}</h2>
           <h3>{country.capital}</h3>
+          {errors && (
+            <p>Sorry, we don't have weather information for this country</p>
+          )}
           {!errors && weather && (
 
             <div>
