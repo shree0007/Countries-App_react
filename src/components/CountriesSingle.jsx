@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Spinner } from 'react-bootstrap';
+import { Button, Container, Spinner, Row, Col, Image } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
+// import Row from 'react-bootstrap';
+// import Col from 'react-bootstrap';
 
 const CountriesSingle = () => {
 
@@ -11,7 +14,7 @@ const CountriesSingle = () => {
 
   //state hooks
   const [weather, setWeather] = useState('');
-  const [error, setError] = useState(false);
+  const [errors, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
   //Destructuring variables
@@ -47,7 +50,35 @@ const CountriesSingle = () => {
 
   return (
     <Container>
-      <div>Single Country will be here</div>
+      <Row className="mt-5">
+        <Col>
+          <Image thumbnail src={`http://source.unsplash.com/1600x900/?${country.capital}`} />
+        </Col>
+
+        <Col>
+          <h2 className='display-4'>{country.name.common}</h2>
+          <h3>{country.capital}</h3>
+          {!errors && weather && (
+
+            <div>
+              <p>
+                Right now it is <strong>{parseInt(weather.main.temp)}</strong>degrees in {country.capital} and {weather.weather[0].description}
+              </p>
+              <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={`${weather.weather[0].description}`} />
+
+            </div>
+          )}
+
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Button variant='light' onClick={() => navigate('/countries')}>
+            Back to Countries
+          </Button>
+        </Col>
+      </Row>
+
     </Container>
   );
 };
