@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth"
-import { auth, regesterWithEmailAndPassword } from "../auth/firebase";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { auth, registerWithEmailAndPassword } from '../auth/firebase';
 
 
 const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [user, loading, error] = useAuthState('');
+    const [user, loading, error] = useAuthState(auth);
     const navigate = useNavigate();
 
     const register = () => {
         if (!name) alert("Please enter name")
-        regesterWithEmailAndPassword(name, email, password);
+        registerWithEmailAndPassword(name, email, password);
     }
 
     useEffect(() => {
