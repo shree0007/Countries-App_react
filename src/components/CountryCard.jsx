@@ -11,6 +11,7 @@ const CountryCard = ({ country }) => {
             >
                 <Card className="h-100">
                     <Card.Body className="d-flex flex-column">
+                        <img class="card-img-top" src={country.flags.svg} alt="Card image cap" />
                         <Card.Title>{country.name.common}</Card.Title>
                         <Card.Subtitle className="mb-5 text-muted">
                             {country.name.official}
