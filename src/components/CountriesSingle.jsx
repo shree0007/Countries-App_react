@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -30,6 +30,20 @@ const CountriesSingle = () => {
   }, [country.capital])
 
   console.log("Weather: ", weather);
+
+  if (loading) {
+    return (
+      <Container>
+        <Spinner
+          animation='border'
+          role='status'
+          className='center'
+          variant='info'>
+          <span className='visually-hidden'>Loading.....</span>
+        </Spinner>
+      </Container>
+    )
+  }
 
   return (
     <Container>
