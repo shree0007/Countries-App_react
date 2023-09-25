@@ -20,9 +20,21 @@ const CountryCard = ({ country }) => {
                             variant="flush"
                             className="flex-grow-1 justify-content-end"
                         >
-                            <ListGroup.Item>
-                                <i className="bi bi-translate me-2"></i>
-                            </ListGroup.Item>
+                            {country.languages ? (
+                                <ListGroup.Item>
+                                    <i className="bi bi-translate me-2"></i>
+                                    {
+                                        Object.values(country.languages)
+                                            .join(', ')
+                                    }
+                                </ListGroup.Item>
+                            ) :
+                                <ListGroup.Item>
+                                    <i className="bi bi-translate me-2"></i>
+                                </ListGroup.Item>
+                            }
+
+
                             <ListGroup.Item>
                                 <i className="bi bi-cash-coin me-2"></i>
                             </ListGroup.Item>
