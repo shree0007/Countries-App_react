@@ -11,7 +11,7 @@ const CountryCard = ({ country }) => {
             >
                 <Card className="h-100">
                     <Card.Body className="d-flex flex-column">
-                        <img class="card-img-top" src={country.flags.svg} alt="Card cap" />
+                        <img class="card-img-top" src={country.flags.png} alt="Card cap" />
                         <Card.Title>{country.name.common}</Card.Title>
                         <Card.Subtitle className="mb-5 text-muted">
                             {country.capital}
@@ -31,20 +31,36 @@ const CountryCard = ({ country }) => {
                             ) :
                                 <ListGroup.Item>
                                     <i className="bi bi-translate me-2"></i>
+                                    No language data available for this country
                                 </ListGroup.Item>
                             }
 
+                            {country.currencies ? (
+                                <ListGroup.Item>
+                                    <i className="bi bi-cash-coin me-2"></i>
+                                    {Object.values(country.currencies)
+                                        .map((currency) => currency.name)
+                                        .join(', ')
+                                    }
+                                </ListGroup.Item>
+                            ) :
+                                <ListGroup.Item>
+                                    <i className="bi bi-cash-coin me-2"></i>
+                                    No currency data available for this country
+                                </ListGroup.Item>
 
-                            <ListGroup.Item>
-                                <i className="bi bi-cash-coin me-2"></i>
+                            }
+                            {country.population ? (
+                                <ListGroup.Item>
+                                    <i className="bi bi-people me-2"></i>
+                                    {country.population}
+                                </ListGroup.Item>
+                            ) : <ListGroup.Item>
+                                <i className="bi bi-people me-2"></i>
+                                No population data available for this country
                             </ListGroup.Item>
+                            }
 
-                            <ListGroup.Item>
-                                <i className="bi bi-people me-2">{country.population}</i>
-                            </ListGroup.Item>
-                            {/* <ListGroup.Item>
-                                <img src={country.flags.png} alt="flag" />
-                            </ListGroup.Item> */}
                         </ListGroup>
                     </Card.Body>
                 </Card>
