@@ -11,7 +11,7 @@ const CountryCard = ({ country }) => {
             >
                 <Card className="h-100">
                     <Card.Body className="d-flex flex-column">
-                        <img class="card-img-top" src={country.flags.png} alt="Card cap" />
+                        <img style={{ height: "250px", width: "auto", border: "solid lightgray 1px" }} src={country.flags.png} alt="Card cap" /><br />
                         <Card.Title>{country.name.common}</Card.Title>
                         <Card.Subtitle className="mb-5 text-muted">
                             {country.capital}
