@@ -24,7 +24,7 @@ const CountryCard = ({ country }) => {
                                 <ListGroup.Item>
                                     <i className="bi bi-translate me-2"></i>
                                     {
-                                        Object.values(country.languages)
+                                        Object.values(country.languages ?? {})
                                             .join(', ')
                                     }
                                 </ListGroup.Item>
@@ -38,7 +38,7 @@ const CountryCard = ({ country }) => {
                             {country.currencies ? (
                                 <ListGroup.Item>
                                     <i className="bi bi-cash-coin me-2"></i>
-                                    {Object.values(country.currencies)
+                                    {Object.values(country.currencies || {})
                                         .map((currency) => currency.name)
                                         .join(', ')
                                     }
