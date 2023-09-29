@@ -1,7 +1,12 @@
 import { Card, Col, ListGroup } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
+import { addFavourite, removeFavourite } from "../features/countries/favouritesSlice";
 
 const CountryCard = ({ country }) => {
+    const favouritesList = useSelector((state) => state.favourites.favourites)
+    const dispatch = useDispatch() //check if it is correct
+
     return (
 
         <Col className="mt-5">
@@ -10,8 +15,34 @@ const CountryCard = ({ country }) => {
                 state={{ country: country }}
             >
                 <Card className="h-100">
+                    {/* //add here */}
+
+                    {/* //aslo check this two parts */}
+                    <Card.Img
+                        variant="top"
+                        src={country.flags.svg}
+                        className="rounded h-50"
+                        style={{
+                            objectFit: "cover",
+                            minHeight: "250px",
+                            maxHeight: "200px",
+                        }}
+                    />
+
+                    {favouritesList.includes(country.name.common) ? (
+                        <i
+                            className="bi bi-heart-fill text-danger m-1 p-1"
+                            onClick={() => dispatch(removeFavourite(country.name.common))} />
+                    ) : (
+                        <i
+                            className="bi bi-heart text-danger m-1 p-1"
+                            onClick={() => dispatch(addFavourite(country.name.common))} />
+                    )}
+
+
+
                     <Card.Body className="d-flex flex-column">
-                        <img style={{ height: "250px", width: "auto", border: "solid lightgray 1px" }} src={country.flags.png} alt="Card cap" /><br />
+                        {/* <img style={{ height: "250px", width: "auto", border: "solid lightgray 1px" }} src={country.flags.png} alt="Card cap" /><br /> */}
                         <Card.Title>{country.name.common}</Card.Title>
                         <Card.Subtitle className="mb-5 text-muted">
                             {country.capital}
