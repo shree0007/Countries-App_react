@@ -19,36 +19,40 @@ const Login = () => {
     }, [user, loading])
 
     return (
+        <Container style={{ height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <Form style={{ width: "30rem", height: "50vh", border: "solid 2px gray", borderRadius: "8px", padding: "6rem" }}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)} placeholder="Enter email" />
+                </Form.Group>
 
-        <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)} placeholder="Enter email" />
-            </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Enter password" />
+                </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter password" />
-            </Form.Group>
+                <Button
+                    onClick={() => loginWithEmailAndPassword(email, password)} variant="primary"
+                >
+                    Login
+                </Button>
 
-            <Button
-                onClick={() => loginWithEmailAndPassword(email, password)} variant="primary"
-            >
-                Login
-            </Button>
+                <br />
 
-            <Form.Text className="text-muted">
-                Doesn't have an account?
-            </Form.Text>
-            <Link to="/register">Register</Link>
-        </Form>
+                <Form.Text className="text-muted">
+                    Doesn't have an account?
+                </Form.Text>
+                <Link to="/register">Register</Link>
+            </Form>
+
+        </Container>
 
 
     );
