@@ -53,7 +53,7 @@ const CountryCard = ({ country }) => {
                             {country.population ? (
                                 <ListGroup.Item>
                                     <i className="bi bi-people me-2"></i>
-                                    {country.population}
+                                    {country.population.toLocaleString()}
                                 </ListGroup.Item>
                             ) : <ListGroup.Item>
                                 <i className="bi bi-people me-2"></i>
