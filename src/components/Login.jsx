@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, loginWithEmailAndPassword } from "../auth/firebase";
-import { Button } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 
@@ -19,29 +19,67 @@ const Login = () => {
     }, [user, loading])
 
     return (
-        <div>
-            <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
-            />
 
-            <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-            />
+        <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)} placeholder="Enter email" />
+            </Form.Group>
 
-            <Button onClick={() => loginWithEmailAndPassword(email, password)}>Login</Button>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter password" />
+            </Form.Group>
 
-            <div>
+            <Button
+                onClick={() => loginWithEmailAndPassword(email, password)} variant="primary"
+            >
+                Login
+            </Button>
+
+            <Form.Text className="text-muted">
                 Doesn't have an account?
-                <Link to="/register">Register</Link>
-            </div>
-        </div>
+            </Form.Text>
+            <Link to="/register">Register</Link>
+        </Form>
+
+
     );
 };
 
 export default Login;
+
+
+
+
+
+
+// <div>
+//     <input
+//         type="email"
+//         value={email}
+//         onChange={(e) => setEmail(e.target.value)}
+//         placeholder="Email"
+//     />
+
+//     <input
+//         type="password"
+//         value={password}
+//         onChange={(e) => setPassword(e.target.value)}
+//         placeholder="Password"
+//     />
+
+//     <Button onClick={() => loginWithEmailAndPassword(email, password)}>Login</Button>
+
+//     <div>
+//         Doesn't have an account?
+//         <Link to="/register">Register</Link>
+//     </div>
+// </div>
