@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, loginWithEmailAndPassword } from "../auth/firebase";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 
@@ -19,41 +19,68 @@ const Login = () => {
     }, [user, loading])
 
     return (
-        <Container style={{ height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <Form style={{ width: "30rem", height: "50vh", border: "solid 2px gray", borderRadius: "8px", padding: "6rem" }}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)} placeholder="Enter email" />
-                </Form.Group>
+        <div>
+            <Container>
+                <Row className="vh-100 d-flex justify-content-center align-items-center">
+                    <Col md={8} lg={6} xs={12}>
+                        <div className="border border-3 border-success"></div>
+                        <Card className="shadow">
+                            <Card.Body>
+                                <div className="mb-3 mt-md-4">
+                                    <h2 className="fw-bold mb-2 text-uppercase ">Countries App</h2>
+                                    <p className=" mb-5">Please enter your login and password!</p>
+                                    <div className="mb-3">
+                                        <Form>
+                                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                                <Form.Label className="text-center">
+                                                    Email address
+                                                </Form.Label>
+                                                <Form.Control
+                                                    type="email"
+                                                    value={email}
+                                                    onChange={(e) => setEmail(e.target.value)}
+                                                    placeholder="Enter email" />
+                                            </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Enter password" />
-                </Form.Group>
+                                            <Form.Group
+                                                className="mb-3"
+                                                controlId="formBasicPassword"
+                                            >
+                                                <Form.Label>Password</Form.Label>
+                                                <Form.Control
+                                                    type="password"
+                                                    value={password}
+                                                    onChange={(e) => setPassword(e.target.value)}
+                                                    placeholder="Password" />
+                                            </Form.Group>
+                                            <Form.Group
+                                                className="mb-3"
+                                                controlId="formBasicCheckbox"
+                                            >
 
-                <Button
-                    onClick={() => loginWithEmailAndPassword(email, password)} variant="primary"
-                >
-                    Login
-                </Button>
-
-                <br />
-
-                <Form.Text className="text-muted">
-                    Doesn't have an account?
-                </Form.Text>
-                <Link to="/register">Register</Link>
-            </Form>
-
-        </Container>
-
+                                            </Form.Group>
+                                            <div className="d-grid">
+                                                <Button onClick={() => loginWithEmailAndPassword(email, password)} variant="success">
+                                                    Login
+                                                </Button>
+                                            </div>
+                                        </Form>
+                                        <div className="mt-3">
+                                            <p className="mb-0  text-center">
+                                                Don't have an account ?{" "}
+                                                <Link to="/register" className="text-success fw-bold">
+                                                    Sign Up
+                                                </Link>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
 
     );
 };
@@ -65,25 +92,15 @@ export default Login;
 
 
 
-// <div>
-//     <input
-//         type="email"
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//         placeholder="Email"
-//     />
 
-//     <input
-//         type="password"
-//         value={password}
-//         onChange={(e) => setPassword(e.target.value)}
-//         placeholder="Password"
-//     />
 
-//     <Button onClick={() => loginWithEmailAndPassword(email, password)}>Login</Button>
 
-//     <div>
-//         Doesn't have an account?
-//         <Link to="/register">Register</Link>
-//     </div>
-// </div>
+
+
+
+
+
+
+
+
+
