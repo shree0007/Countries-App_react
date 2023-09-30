@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import CountryCard from './CountryCard';
-
-
-import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import { useDispatch, useSelector } from 'react-redux';
-import { LinkContainer } from 'react-router-bootstrap';
 import { initializeCountries } from '../features/countries/countriesSlice';
 
 const Countries = () => {
@@ -60,14 +55,8 @@ const Countries = () => {
             return c.name.official.toLowerCase().includes(search.toLowerCase());
           })
           .map((country) => (
-            <CountryCard key={country.name} country={country} />
+            <CountryCard key={country.name.official} country={country} />
           ))}
-
-
-
-
-
-
 
       </Row>
 
