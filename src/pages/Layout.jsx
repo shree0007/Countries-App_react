@@ -18,7 +18,7 @@ const Layout = () => {
   return (
     <Container fluid>
       <Row>
-        <Navbar bg="light" variant="light">
+        <Navbar bg="success" variant="dark">
           <Container className="justify-content-end">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -41,8 +41,8 @@ const Layout = () => {
               </Nav>
             </Navbar.Collapse>
             {user ? (
-              <Button onClick={logout}>Logout</Button>) :
-              <Link to="/login"> <Button>Login</Button></Link>
+              <Button variant='success' className='border-white' onClick={logout}>Logout</Button>) :
+              <Link to="/login"> <Button variant='success' className='border-white'>Login</Button></Link>
             }
 
           </Container>
