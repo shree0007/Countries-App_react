@@ -55,33 +55,37 @@ const CountriesSingle = () => {
 
   return (
     <Container>
-      <Row className="mt-5">
-        <Col>
+      <Row className="mt-5 mr-2">
+        <Col className='h-40'>
           <Image thumbnail src={`http://source.unsplash.com/1600x900/?${country.capital}`} />
         </Col>
 
-        <Col>
-          <h2 className='display-4'>{country.name.common}</h2>
-          <h3>{country.capital}</h3>
-          {errors && (
-            <p>Sorry, we don't have weather information for this country</p>
-          )}
-          {!errors && weather && (
+        <Col className='h-40 flex'>
+          <div style={{ backgroundColor: "black", padding: "4rem", color: "white", height: "100%" }}>
+            <h2 className='display-4'>{country.name.common}{" " + country.flag}</h2><br />
+            <p><span style={{ color: "green" }}>{country.capital}</span> is the capital city of {country.name.common}</p>
+            <p>{country.name.common} has area of <span style={{ color: "green" }}>{country.area.toLocaleString()}</span> sq.km</p>
+            <p>Is {country.name.common} a land-locked? <span style={{ color: "green", fontWeight: "600" }}>{country.landlocked.toLocaleString()}</span></p>
+            <p>Is {country.name.common} a UN member? <span style={{ color: "green", fontWeight: "600" }}>{country.unMember.toLocaleString()}</span></p>
+            {errors && (
+              <p>Sorry, we don't have weather information for this country</p>
+            )}
+            {!errors && weather && (
 
-            <div>
-              <p>
-                Right now it is <strong>{parseInt(weather.main.temp)}</strong>degrees in {country.capital} and {weather.weather[0].description}
-              </p>
-              <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={`${weather.weather[0].description}`} />
+              <div>
+                <p>
+                  Right now it is <strong style={{ color: "green" }}>{parseInt(weather.main.temp)}</strong> degrees in {country.capital} and the weather is {weather.weather[0].description}
+                </p>
+                <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={`${weather.weather[0].description}`} />
 
-            </div>
-          )}
-
+              </div>
+            )}
+          </div>
         </Col>
       </Row>
-      <Row>
+      <Row style={{ marginTop: "5rem" }}>
         <Col>
-          <Button variant='light' onClick={() => navigate('/countries')}>
+          <Button variant='success' onClick={() => navigate('/countries')}>
             Back to Countries
           </Button>
         </Col>
