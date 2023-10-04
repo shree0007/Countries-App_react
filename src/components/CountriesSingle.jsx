@@ -54,7 +54,7 @@ const CountriesSingle = () => {
   }
 
   return (
-    <Container>
+    <Container className='bg-dark vh-100'>
       <Row className="mt-5 mr-2">
         <Col className='h-40'>
           <Image thumbnail src={`http://source.unsplash.com/1600x900/?${country.capital}`} />
