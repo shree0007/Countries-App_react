@@ -54,19 +54,19 @@ const CountriesSingle = () => {
   }
 
   return (
-    <Container className='bg-dark vh-100'>
+    <Container className='bg-#191919 vh-100'>
       <Row className="mt-5 mr-2">
         <Col className='h-40'>
           <Image thumbnail src={`http://source.unsplash.com/1600x900/?${country.capital}`} />
         </Col>
 
         <Col className='h-40 flex'>
-          <div style={{ backgroundColor: "black", padding: "4rem", color: "white", height: "100%" }}>
+          <div style={{ backgroundColor: "#290001", padding: "4rem", color: "white", height: "100%" }}>
             <h2 className='display-4'>{country.name.common}{" " + country.flag}</h2><br />
-            <p><span style={{ color: "green" }}>{country.capital}</span> is the capital city of {country.name.common}</p>
-            <p>{country.name.common} has area of <span style={{ color: "green" }}>{country.area.toLocaleString()}</span> sq.km</p>
-            <p>Is {country.name.common} a land-locked? <span style={{ color: "green", fontWeight: "600" }}>{country.landlocked.toLocaleString()}</span></p>
-            <p>Is {country.name.common} a UN member? <span style={{ color: "green", fontWeight: "600" }}>{country.unMember.toLocaleString()}</span></p>
+            <p><span style={{ color: "#308454" }}>{country.capital}</span> is the capital city of {country.name.common}</p>
+            <p>{country.name.common} has area of <span style={{ color: "#308454" }}>{country.area.toLocaleString()}</span> sq.km</p>
+            <p>Is {country.name.common} a land-locked? <span style={{ color: "#308454", fontWeight: "600" }}>{country.landlocked.toLocaleString()}</span></p>
+            <p>Is {country.name.common} a UN member? <span style={{ color: "#308454", fontWeight: "600" }}>{country.unMember.toLocaleString()}</span></p>
             {errors && (
               <p>Sorry, we don't have weather information for this country</p>
             )}
@@ -74,7 +74,7 @@ const CountriesSingle = () => {
 
               <div>
                 <p>
-                  Right now it is <strong style={{ color: "green" }}>{parseInt(weather.main.temp)}</strong> degrees in {country.capital} and the weather is {weather.weather[0].description}
+                  Right now it is <strong style={{ color: "#308454" }}>{parseInt(weather.main.temp)}</strong> degrees in {country.capital} and the weather is {weather.weather[0].description}
                 </p>
                 <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={`${weather.weather[0].description}`} />
 

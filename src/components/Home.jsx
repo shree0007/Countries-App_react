@@ -1,15 +1,16 @@
 import React from 'react';
 import EarthRotate from './ui/EarthRotate';
+import hello_image from './ui/hello.png';
+
 
 const Home = () => {
   return (
-    <div style={{ backgroundColor: "black", height: "100vh" }}>
+    <div style={{ backgroundColor: "#191919", height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
       <EarthRotate />
-      <div style={{ color: "green", textAlign: "center" }}>
-        <span>This Countries App </span>is a simple React application made in
-        Business College Helsinki as an assignment. App uses{' '}
-        <a href="https://restcountries.com/">https://restcountries.com/ </a> and{' '}
-        <a href="https://openweathermap.org/">https://openweathermap.org/</a>
+      <div style={{ color: "#308454", textAlign: "center", width: "900px", padding: "1rem" }}>
+        <h4>Hello there ! <img src={hello_image} alt="hello" /></h4> <br />
+        <p> "Welcome to Countries App, your passport to the world! Explore the diverse nations, uncovering their capitals, languages, currencies, populations, weather conditions, and many more all in the palm of your hand."</p>
+
       </div>
     </div>
   );

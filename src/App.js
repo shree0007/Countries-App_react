@@ -12,7 +12,7 @@ import ProtectedRoute from './auth/ProtectedRoute';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './auth/firebase';
 
-import Favourites from './components/favourites';
+import Favourites from './components/Favourites';
 
 
 

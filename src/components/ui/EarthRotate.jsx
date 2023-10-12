@@ -17,9 +17,9 @@ const RotatingEarth = styled.img`
 
 const EarthRotate = () => {
   return (
-    <div style={{ height: "80vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+    <div style={{ height: "60vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
       <RotatingEarth
-        style={{ width: "500px", height: "500px" }}
+        style={{ width: "420px", height: "420px" }}
         src={Earth}
         alt="Earth"
       />
