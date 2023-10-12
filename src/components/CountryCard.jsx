@@ -31,11 +31,11 @@ const CountryCard = ({ country }) => {
 
                     {favouritesList.includes(country.name.common) ? (
                         <i
-                            className="bi bi-heart-fill text-danger m-1 p-1"
+                            className="bi bi-heart-fill text-danger m-1 p-1 fs-4"
                             onClick={() => dispatch(removeFavourite(country.name.common))} />
                     ) : (
                         <i
-                            className="bi bi-heart text-danger m-1 p-1"
+                            className="bi bi-heart text-danger m-1 p-1 fs-4"
                             onClick={() => dispatch(addFavourite(country.name.common))} />
                     )}
 

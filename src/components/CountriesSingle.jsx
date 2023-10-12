@@ -41,7 +41,7 @@ const CountriesSingle = () => {
 
   if (loading) {
     return (
-      <Container>
+      <Container className='min-vh-100'>
         <Spinner
           animation='border'
           role='status'

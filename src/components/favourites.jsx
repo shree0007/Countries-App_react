@@ -37,7 +37,7 @@ const Favourites = () => {
         )
     }
     return (
-        <Container fluid className="vh-100">
+        <Container fluid className="min-vh-100">
             <Row>
                 <Col className="mt-5 d-flex justify-content-center">
                     <Form>

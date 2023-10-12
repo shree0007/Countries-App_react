@@ -24,7 +24,7 @@ const Countries = () => {
 
 
   return (
-    <Container fluid className='bg-#191919 mb-5'>
+    <Container fluid className='bg-#191919 mb-5 min-vh-100'>
       <Row>
         <Col className="mt-5 d-flex justify-content-center">
           <Form>
