@@ -8,6 +8,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Button } from 'react-bootstrap';
 import { auth, logout } from '../auth/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 
 
@@ -52,7 +53,14 @@ const Layout = () => {
         <Outlet />
       </Row>
       <Row className='sm py-5 bg-dark text-center'>
-        <small className='text-white-50'>&copy; Copyright Shree's Countries App 2023  </small>
+        <div className='footer' style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <small className='text-white-50'>&copy; Copyright Shree's Countries App 2023  </small>
+          <div className='icons mx-5'>
+            <a href="https://www.facebook.com/groups/768403813253721"><FaFacebook className='icon fs-4  mx-2 text-success' /></a>
+            <a href='https://twitter.com/'><FaTwitter className='icon fs-4 mx-2 text-success' /></a>
+            <a href='https://www.instagram.com/countries_pictures/'><FaInstagram className='icon fs-4 mx-2 text-success' /></a>
+          </div>
+        </div>
       </Row>
     </Container>
   );
