@@ -36,36 +36,37 @@ const Favourites = () => {
             </Col>
         )
     }
-    return (<Container fluid>
-        <Row>
-            <Col className="mt-5 d-flex justify-content-center">
-                <Form>
-                    <Form.Control
-                        style={{ width: '18rem' }}
-                        type="search"
-                        className="me-2 "
-                        placeholder="Search for countries"
-                        aria-label="Search"
-                        onChange={(e) => setSearch(e.target.value)}
-                    />
-                </Form>
-            </Col>
-        </Row>
+    return (
+        <Container fluid className="vh-100">
+            <Row>
+                <Col className="mt-5 d-flex justify-content-center">
+                    <Form>
+                        <Form.Control
+                            style={{ width: '18rem' }}
+                            type="search"
+                            className="me-2 "
+                            placeholder="Search for countries"
+                            aria-label="Search"
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+                    </Form>
+                </Col>
+            </Row>
 
-        <Row xs={2} md={3} lg={4} className=" g-3">
-            {countriesList
-                .filter((c) => {
-                    return c.name.official.toLowerCase().includes(search.toLowerCase());
-                })
-                .map((country) => (
-                    <CountryCard key={country.name.common} country={country} />
-                ))}
-        </Row>
-        <Row xs={2} md={3} lg={6} className="g-3 mt-4">
-            <Button variant="success" className="mx-auto my-4" onClick={() => {
-                dispatch(clearFavourites())
-            }}>Clear Favourites</Button>
-        </Row>
-    </Container>)
+            <Row xs={2} md={3} lg={4} className=" g-3">
+                {countriesList
+                    .filter((c) => {
+                        return c.name.official.toLowerCase().includes(search.toLowerCase());
+                    })
+                    .map((country) => (
+                        <CountryCard key={country.name.common} country={country} />
+                    ))}
+            </Row>
+            <Row xs={2} md={3} lg={6} className="g-3 mt-4">
+                <Button variant="success" className="mx-auto my-4" onClick={() => {
+                    dispatch(clearFavourites())
+                }}>Clear Favourites</Button>
+            </Row>
+        </Container>)
 }
 export default Favourites;

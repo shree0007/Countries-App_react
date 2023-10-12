@@ -5,7 +5,7 @@ import hello_image from './ui/hello.png';
 
 const Home = () => {
   return (
-    <div style={{ backgroundColor: "#191919", height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+    <div style={{ backgroundColor: "#191919", minHeight: "90vh", display: "flex", flexDirection: "column", alignItems: "center", marginTop: "10rem" }}>
       <EarthRotate />
       <div style={{ color: "#308454", textAlign: "center", width: "900px", padding: "1rem" }}>
         <h4>Hello there ! <img src={hello_image} alt="hello" /></h4> <br />

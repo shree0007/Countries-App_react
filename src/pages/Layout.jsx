@@ -48,8 +48,11 @@ const Layout = () => {
           </Container>
         </Navbar>
       </Row>
-      <Row>
+      <Row >
         <Outlet />
+      </Row>
+      <Row className='sm py-5 bg-dark text-center'>
+        <small className='text-white-50'>&copy; Copyright Shree's Countries App 2023  </small>
       </Row>
     </Container>
   );
