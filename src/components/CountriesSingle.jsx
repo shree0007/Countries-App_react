@@ -81,9 +81,15 @@ const CountriesSingle = () => {
 
             )}
           </div>
+
+
         </Col>
 
         <CountryBorders />
+
+        <div style={{ marginTop: "1rem" }}>
+          <a href={country.maps.googleMaps} alt={country.name.common} target="_blank" rel="noreferrer">Country's Google Map</a>
+        </div>
 
       </Row>
       <Row style={{ marginTop: "5rem" }}>
