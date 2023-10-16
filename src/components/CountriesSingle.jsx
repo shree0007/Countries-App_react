@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Container, Spinner, Row, Col, Image } from 'react-bootstrap';
+import { Button, Container, Spinner, Row, Col, Image, Card } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import CountryBorders from './CountryBorders';
@@ -53,54 +53,64 @@ const CountriesSingle = () => {
   }
 
   return (
-    <Container className='bg-#191919 vh-100'>
-      <Row className="mt-5 mr-2">
-        <Col className='h-40'>
-          <Image thumbnail src={`http://source.unsplash.com/1600x900/?${country.capital}`} />
-        </Col>
+    <Container className='min-vh-100 mt-2'>
+      <div className="row p-2">
 
-        <Col className='h-40 flex'>
-          <div style={{ backgroundColor: "#290001", padding: "4rem", color: "white", height: "100%" }}>
-            <h2 className='display-4'>{country.name.common}{" " + country.flag}</h2><br />
-            <p><span style={{ color: "#308454" }}>{country.capital}</span> is the capital city of {country.name.common}</p>
-            <p>{country.name.common} has area of <span style={{ color: "#308454" }}>{country.area.toLocaleString()}</span> sq.km</p>
-            <p>Is {country.name.common} a land-locked? <span style={{ color: "#308454", fontWeight: "600" }}>{country.landlocked.toLocaleString()}</span></p>
-            <p>Is {country.name.common} a UN member? <span style={{ color: "#308454", fontWeight: "600" }}>{country.unMember.toLocaleString()}</span></p>
-            {errors && (
-              <p>Sorry, we don't have weather information for this country</p>
-            )}
-            {!errors && weather && (
-
-              <div>
-                <p>
-                  Right now it is <strong style={{ color: "#308454" }}>{parseInt(weather.main.temp)}</strong> degrees in {country.capital} and the weather is {weather.weather[0].description}
-                </p>
-                <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={`${weather.weather[0].description}`} />
-
-              </div>
-
-            )}
-          </div>
-
-
-        </Col>
-
-        <CountryBorders />
-
-        <div style={{ marginTop: "1rem" }}>
-          <a href={country.maps.googleMaps} alt={country.name.common} target="_blank" rel="noreferrer">Country's Google Map</a>
+        <div className="col-8 p-0">
+          <img style={{ width: "100%", height: "100%" }} src={`http://source.unsplash.com/1600x900/?${country.capital}`} />
         </div>
 
-      </Row>
-      <Row style={{ marginTop: "5rem" }}>
-        <Col>
+        <div className="col-4 bg-white p-4">
+          <h2 className='display-4'>{country.name.common}{" " + country.flag}</h2><br />
+          <h4>Basic Info</h4>
+          <p><span style={{ color: "#308454", fontWeight: "600" }}>{country.capital}</span> is the capital city of {country.name.common}</p>
+          <p>{country.name.common} has area of <span style={{ color: "#308454", fontWeight: "600" }}>{country.area.toLocaleString()}</span> sq.km</p>
+          <p>Is {country.name.common} a land-locked? <span style={{ color: "#308454", fontWeight: "600" }}>{country.landlocked.toLocaleString()}</span></p>
+          <p>Is {country.name.common} a UN member? <span style={{ color: "#308454", fontWeight: "600" }}>{country.unMember.toLocaleString()}</span></p>
+        </div>
+
+        <div className="w-100 p-2"></div>
+
+        <div className="col bg-white p-4 h-auto">
+
+          <CountryBorders /> <br />
+
+          <div style={{ marginTop: "1rem" }}>
+            <h4>Country's Google Map</h4>
+            <a style={{ border: "2px solid green", borderRadius: "4px", padding: "0.3rem", textDecoration: "none", color: "green" }} href={country.maps.googleMaps} alt={country.name.common} target="_blank" rel="noreferrer">Click here</a>
+          </div>
+        </div>
+
+        <div className="col p-4 bg-white">
+          {errors && (
+            <p>Sorry, we don't have weather information for this country</p>
+          )}
+          {!errors && weather && (
+
+            <div>
+              <h4>Weather Info</h4>
+              <p>
+                Right now it is <strong style={{ color: "#308454" }}>{parseInt(weather.main.temp)} degrees</strong> in {country.capital} and the weather is {weather.weather[0].description}
+              </p>
+              <p>Feels Like temperature is:  <strong style={{ color: "#308454" }}>{weather.main.feels_like}°C</strong></p>
+              <p>Humidity is <strong style={{ color: "#308454" }}>{weather.main.humidity}</strong > and wind speed is <strong style={{ color: "#308454" }}>{weather.wind.speed}</strong></p>
+              <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={`${weather.weather[0].description}`} />
+
+            </div>
+
+          )}
+        </div>
+
+        <div className='my-4 d-flex justify-content-center align-items-center'>
           <Button variant='success' onClick={() => navigate('/countries')}>
             Back to Countries
           </Button>
-        </Col>
-      </Row>
 
+        </div>
+
+      </div>
     </Container>
+
   );
 };
 

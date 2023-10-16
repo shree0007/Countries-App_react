@@ -35,31 +35,31 @@ const CountryBorders = () => {
     }, [country.borders]);
 
     return (
-        <Card>
-            <Card.Body>
-                <Card.Title>Borders</Card.Title>
-                {errors ? (
-                    <p>{errors}</p>
-                ) : borders.length > 0 ? (
-                    <div style={{ display: "flex", listStyle: "none" }}>
-                        {borders.map((country) => (
-                            <li key={country.cca3}>
-                                <div>
-                                    <Link
-                                        to={`/countries/${country.name.common}`}
-                                        state={{ country: country }}
-                                        style={{ textDecoration: "none", padding: "0 1rem 0 0" }}
-                                    >
-                                        {country.name.common}{country.flag}
-                                    </Link>
-                                </div>
-                            </li>
-                        ))}
-                    </div>
-                ) : null
-                }
-            </Card.Body>
-        </Card>
+        <div className='bg-white'>
+
+            <h4>Bordering Countries</h4>
+            {errors ? (
+                <p>{errors}</p>
+            ) : borders.length > 0 ? (
+                <div style={{ listStyle: "none" }}>
+                    {borders.map((country) => (
+                        <li key={country.cca3}>
+                            <div>
+                                <Link
+                                    to={`/countries/${country.name.common}`}
+                                    state={{ country: country }}
+                                    style={{ textDecoration: "none", padding: "0 1rem 0 0" }}
+                                >
+                                    {country.name.common}{country.flag}
+                                </Link>
+                            </div>
+                        </li>
+                    ))}
+                </div>
+            ) : null
+            }
+
+        </div>
     )
 }
 
