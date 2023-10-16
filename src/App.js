@@ -4,17 +4,13 @@ import Countries from './components/Countries';
 import CountriesSingle from './components/CountriesSingle';
 import Home from './components/Home';
 import Layout from './pages/Layout';
-
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Login from './components/Login';
 import Register from './components/Register';
 import ProtectedRoute from './auth/ProtectedRoute';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './auth/firebase';
-
 import Favourites from './components/Favourites';
-
-
 
 const App = () => {
 

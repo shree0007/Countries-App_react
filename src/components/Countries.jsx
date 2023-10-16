@@ -12,16 +12,11 @@ const Countries = () => {
   const countriesList = useSelector((state) => state.countries.countries);
   const loading = useSelector((state) => state.countries.isLoading);
 
-  // console.log("CountriesList = ", countriesList)
-
   const [search, setSearch] = useState('')
-
-  // console.log("Search: ", search)
 
   useEffect(() => {
     dispatch(initializeCountries())
   }, [dispatch])
-
 
   return (
     <Container fluid className='bg-#191919 mb-5 min-vh-100'>
@@ -40,15 +35,6 @@ const Countries = () => {
         </Col>
       </Row>
       <Row xs={2} md={3} lg={4} className=" g-3">
-
-
-
-        {/* {countriesList.reduce((acc, country) => {
-            if (country.name.official.toLowerCase().includes(search.toLowerCase())) {
-             acc.push(<CountryCard key={country.name} country={country} />);
-          }
-          return acc;
-          }, [])} */}
 
         {countriesList
           .filter((c) => {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Container, Spinner, Row, Col, Image, Card } from 'react-bootstrap';
+import { Button, Container, Spinner, Image } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import CountryBorders from './CountryBorders';
@@ -7,16 +7,13 @@ import CountryBorders from './CountryBorders';
 
 const CountriesSingle = () => {
 
-  //function hooks
   const location = useLocation();
   const navigate = useNavigate();
 
-  //state hooks
   const [weather, setWeather] = useState('');
   const [errors, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  //Destructuring variables
   const country = location.state.country;
 
   useEffect(() => {

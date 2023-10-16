@@ -26,7 +26,6 @@ export const initializeCountries = () => {
     }
 }
 
-// The below line is connecting the reducer actions to the store
 export const { isLoading, getCountries } = countriesSlice.actions;
 
 export default countriesSlice.reducer;

@@ -10,9 +10,6 @@ import { auth, logout } from '../auth/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
-
-
-
 const Layout = () => {
 
   const [user] = useAuthState(auth);

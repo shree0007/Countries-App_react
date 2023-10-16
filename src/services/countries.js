@@ -10,6 +10,4 @@ const countriesAPI = {
     }
 }
 
-
-
 export default countriesAPI;

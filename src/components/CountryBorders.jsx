@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Card } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
@@ -36,29 +35,28 @@ const CountryBorders = () => {
 
     return (
         <div className='bg-white'>
-
             <h4>Bordering Countries</h4>
-            {errors ? (
+            {loading ? (
+                <p>Loading...</p>
+            ) : errors ? (
                 <p>{errors}</p>
             ) : borders.length > 0 ? (
                 <div style={{ listStyle: "none" }}>
-                    {borders.map((country) => (
-                        <li key={country.cca3}>
+                    {borders.map((borderCountry) => (
+                        <li key={borderCountry.cca3}>
                             <div>
                                 <Link
-                                    to={`/countries/${country.name.common}`}
-                                    state={{ country: country }}
+                                    to={`/countries/${borderCountry.name.common}`}
+                                    state={{ country: borderCountry }}
                                     style={{ textDecoration: "none", padding: "0 1rem 0 0" }}
                                 >
-                                    {country.name.common}{country.flag}
+                                    {borderCountry.name.common} {borderCountry.flag}
                                 </Link>
                             </div>
                         </li>
                     ))}
                 </div>
-            ) : null
-            }
-
+            ) : null}
         </div>
     )
 }

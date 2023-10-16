@@ -5,19 +5,15 @@ import { addFavourite, removeFavourite } from "../features/countries/favouritesS
 
 const CountryCard = ({ country }) => {
     const favouritesList = useSelector((state) => state.favourites.favourites)
-    const dispatch = useDispatch() //check if it is correct
+    const dispatch = useDispatch()
 
     return (
-
         <Col className="mt-5">
             <LinkContainer
                 to={`/countries/${country.name.common}`}
                 state={{ country: country }}
             >
                 <Card className="h-100">
-                    {/* //add here */}
-
-                    {/* //aslo check this two parts */}
                     <Card.Img
                         variant="top"
                         src={country.flags.svg}
@@ -39,10 +35,7 @@ const CountryCard = ({ country }) => {
                             onClick={() => dispatch(addFavourite(country.name.common))} />
                     )}
 
-
-
                     <Card.Body className="d-flex flex-column">
-                        {/* <img style={{ height: "250px", width: "auto", border: "solid lightgray 1px" }} src={country.flags.png} alt="Card cap" /><br /> */}
                         <Card.Title>{country.name.common}</Card.Title>
                         <Card.Subtitle className="mb-5 text-muted">
                             {country.capital}
