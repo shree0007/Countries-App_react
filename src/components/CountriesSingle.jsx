@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Button, Container, Spinner, Row, Col, Image } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import CountryBorders from './CountryBorders';
 
-// import Row from 'react-bootstrap';
-// import Col from 'react-bootstrap';
 
 const CountriesSingle = () => {
 
@@ -79,9 +78,13 @@ const CountriesSingle = () => {
                 <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={`${weather.weather[0].description}`} />
 
               </div>
+
             )}
           </div>
         </Col>
+
+        <CountryBorders />
+
       </Row>
       <Row style={{ marginTop: "5rem" }}>
         <Col>
