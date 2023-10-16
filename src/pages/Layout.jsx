@@ -56,9 +56,9 @@ const Layout = () => {
         <div className='footer' style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
           <small className='text-white-50'>&copy; Copyright Shree's Countries App 2023  </small>
           <div className='icons mx-5'>
-            <a href="https://www.facebook.com/groups/768403813253721"><FaFacebook className='icon fs-4  mx-2 text-success' /></a>
-            <a href='https://twitter.com/'><FaTwitter className='icon fs-4 mx-2 text-success' /></a>
-            <a href='https://www.instagram.com/countries_pictures/'><FaInstagram className='icon fs-4 mx-2 text-success' /></a>
+            <a href="https://www.facebook.com/groups/768403813253721" target="_blank" rel="noreferrer"><FaFacebook className='icon fs-4  mx-2 text-success' /></a>
+            <a href='https://twitter.com/' target="_blank" rel="noreferrer"><FaTwitter className='icon fs-4 mx-2 text-success' /></a>
+            <a href='https://www.instagram.com/countries_pictures/' target="_blank" rel="noreferrer"><FaInstagram className='icon fs-4 mx-2 text-success' /></a>
           </div>
         </div>
       </Row>

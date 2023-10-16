@@ -57,7 +57,7 @@ const CountriesSingle = () => {
       <div className="row p-2">
 
         <div className="col-8 p-0">
-          <img style={{ width: "100%", height: "100%" }} src={`http://source.unsplash.com/1600x900/?${country.capital}`} />
+          <Image style={{ width: "100%", height: "100%" }} src={`http://source.unsplash.com/1600x900/?${country.capital}`} />
         </div>
 
         <div className="col-4 bg-white p-4">
@@ -90,7 +90,7 @@ const CountriesSingle = () => {
             <div>
               <h4>Weather Info</h4>
               <p>
-                Right now it is <strong style={{ color: "#308454" }}>{parseInt(weather.main.temp)} degrees</strong> in {country.capital} and the weather is {weather.weather[0].description}
+                Right now it is <strong style={{ color: "#308454" }}>{parseInt(weather.main.temp)} degrees</strong> in {country.capital} and the weather is <strong style={{ color: "#308454" }}>{weather.weather[0].description}</strong>
               </p>
               <p>Feels Like temperature is:  <strong style={{ color: "#308454" }}>{weather.main.feels_like}°C</strong></p>
               <p>Humidity is <strong style={{ color: "#308454" }}>{weather.main.humidity}</strong > and wind speed is <strong style={{ color: "#308454" }}>{weather.wind.speed}</strong></p>
