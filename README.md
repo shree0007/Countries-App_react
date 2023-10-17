@@ -18,19 +18,22 @@ Built with:
 - Bootstrap
 - CSS
 
-## To run this app
-- `git clone` https://github.com/shree0007/Countries-App_react
-- `npm install` to install all dependencies
-- `npm start` to run the app (http://localhost:3000/)
-- `Note!` Need to have own weather api key and firebase configuration keys
+<br/>
 
-## Important Features used
+Important features used:
 - React Router Dom
 - React Redux and React Redux Toolkit
 - Authentication
 - React styled components animation
 - Axios
 - Event handlers
+
+
+## To run this app
+- `git clone` https://github.com/shree0007/Countries-App_react
+- `npm install` to install all dependencies
+- `npm start` to run the app (http://localhost:3000/)
+- `Note!` Need to have own weather api key and firebase configuration keys
 
 ## Sources
 - Countries and their information from [Countries API](https://restcountries.com/)
