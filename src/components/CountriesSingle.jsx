@@ -11,7 +11,7 @@ const CountriesSingle = () => {
   const navigate = useNavigate();
 
   const [weather, setWeather] = useState('');
-  const [errors, setError] = useState(false);
+  const [errors, setErrors] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const country = location.state.country;
@@ -19,11 +19,11 @@ const CountriesSingle = () => {
   useEffect(() => {
     if (!country.capital) {
       setLoading(false)
-      setError(true)
+      setErrors(true)
     } else {
       axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&units=metric&appid=${process.env.REACT_APP_OPENWEATHER_KEY}`)
         .catch((err) => {
-          setError(true);
+          setErrors(true);
         })
         .then((res) => {
           setWeather(res.data);
