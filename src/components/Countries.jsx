@@ -10,8 +10,6 @@ import { initializeCountries } from '../features/countries/countriesSlice';
 const Countries = () => {
   const dispatch = useDispatch();
   const countriesList = useSelector((state) => state.countries.countries);
-  const loading = useSelector((state) => state.countries.isLoading);
-
   const [search, setSearch] = useState('')
 
   useEffect(() => {

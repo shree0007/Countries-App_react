@@ -87,10 +87,10 @@ const CountriesSingle = () => {
             <div>
               <h4>Weather Info</h4>
               <p>
-                Right now it is <strong style={{ color: "#308454" }}>{parseInt(weather.main.temp)} degrees</strong> in {country.capital} and the weather is <strong style={{ color: "#308454" }}>{weather.weather[0].description}</strong>
+                Right now it is <strong style={{ color: "#308454" }}>{parseInt(weather.main.temp)} °C</strong> in {country.capital} and the weather is <strong style={{ color: "#308454" }}>{weather.weather[0].description}</strong>
               </p>
               <p>Feels Like temperature is:  <strong style={{ color: "#308454" }}>{weather.main.feels_like}°C</strong></p>
-              <p>Humidity is <strong style={{ color: "#308454" }}>{weather.main.humidity}</strong > and wind speed is <strong style={{ color: "#308454" }}>{weather.wind.speed}</strong></p>
+              <p>Humidity is <strong style={{ color: "#308454" }}>{weather.main.humidity}%</strong >, and wind speed is <strong style={{ color: "#308454" }}>{weather.wind.speed}m/s</strong> and wind degree is <strong style={{ color: "#308454" }}>{weather.wind.deg} degrees</strong> </p>
               <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={`${weather.weather[0].description}`} />
 
             </div>
